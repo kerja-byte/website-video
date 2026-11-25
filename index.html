@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Display</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video
+    id="mainVideo"
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="auto"
+  >
+    <source src="video.mp4" type="video/mp4">
+    Browser kamu tidak mendukung pemutaran video.
+  </video>
+
+  <script>
+    const video = document.getElementById("mainVideo");
+
+    // Memastikan video mencoba diputar otomatis
+    video.play().catch(() => {
+      console.log("Autoplay menunggu izin browser.");
+    });
+  </script>
+
+</body>
+</html>
